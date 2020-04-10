@@ -11,8 +11,6 @@ const { WebClient } = require('@slack/web-api');
  * @param {object} res Cloud Function response object.
  */
 exports.handler = async (req, res) => {
-    console.log(config);
-    console.dir(req);
     try {
         if (req.method !== 'POST') {
             const error = new Error('Only POST requests are accepted');
@@ -23,12 +21,17 @@ exports.handler = async (req, res) => {
         const web = new WebClient(config.SLACK_SECRET);
 
         (async () => {
+            let text = req.get('content-type') === 'application/json'
+                ? '```' + req.rawBody.toString() + '```'
+                : req.rawBody.toString();
+
             // See: https://api.slack.com/methods/chat.postMessage
-            const res = await web.chat.postMessage({ 
-                channel: req.query.channel, 
+            const res = await web.chat.postMessage({
+                channel: req.query.channel,
                 username: req.query.username,
-                text: '```' + req.rawBody.toString() + '```'
+                text: text
             });
+
         })();
 
         res.send('Accepted');
