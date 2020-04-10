@@ -34,5 +34,5 @@ curl -X POST -H 'Content-Type: application/json' -d '{"data":"data"}' 'http://lo
 docker run -ti --mount type=bind,source="$(pwd)"/.config,target=/root/.config google/cloud-sdk:latest gcloud init
 ```
 ```
-docker run -ti --mount type=bind,source="$(pwd)"/.config,target=/root/.config -w /root -v $PWD:/root google/cloud-sdk:latest gcloud functions deploy [FUNCTION_NAME] --runtime nodejs10 --trigger-http --entry-point handler --project mailgun-to-slack --service-account [SERVICE_ACCOUNT] --allow-unauthenticated
+docker run -ti --mount type=bind,source="$(pwd)"/.config,target=/root/.config -w /root -v $PWD:/root google/cloud-sdk:latest gcloud functions deploy [FUNCTION_NAME] --runtime nodejs10 --trigger-http --entry-point handler --project mailgun-to-slack --service-account [SERVICE_ACCOUNT] --allow-unauthenticated 128MB
 ```
