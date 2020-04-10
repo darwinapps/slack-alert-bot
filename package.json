@@ -1,0 +1,27 @@
+{
+  "name": "slack-alert-bot",
+  "version": "0.0.1",
+  "private": true,
+  "license": "Apache-2.0",
+  "author": "Aleksandr Guidrevitch <aguidrevitch@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darwinapps/slack-alert-bot.git"
+  },
+  "scripts": {
+    "start": "functions-framework --target=handler"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "dependencies": {
+    "@slack/web-api": "^5.8.0"
+  },
+  "devDependencies": {
+    "@google-cloud/functions-framework": "^1.5.1"
+  },
+  "cloud-repo-tools": {
+    "requiresKeyFile": true,
+    "requiresProjectId": true
+  }
+}

@@ -1,0 +1,5 @@
+.config
+.kube
+node_modules
+config.json
+test.js
