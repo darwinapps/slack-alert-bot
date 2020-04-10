@@ -1,10 +1,21 @@
+## Slack Alert Bot
+
+Implemented as a cloud function, this bot works as a webhook, that simply retranslates everything it gets into selected Slack channel. Slack channel can be specified as `channel` query parameter, username - as `username` query parameter, eg
+
+```
+curl -X POST -d 'Hello @channel' https://[REGION]-[PROJECT].cloudfunctions.net/[FUNCTION_NAME]
+```
+
+## Configuration
+
+Copy `config.default.json` to `config.json` and set SLACK_SECRET of your Slack bot
+
+
 ## Initialization
 
 ```
 docker run --rm -it -w /build -v $PWD:/build -p 8080:8080 node:dubnium npm install
 ```
-
-Copy config.default.json to config.json and set SLACK_SECRET of your Slack bot
 
 ## Local Debug
 
