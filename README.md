@@ -3,13 +3,14 @@
 Implemented as a cloud function, this bot works as a webhook, that simply retranslates everything it gets into selected Slack channel. Slack channel can be specified as `channel` query parameter, username - as `username` query parameter, eg
 
 ```
-curl -X POST -d 'Hello @channel' https://[REGION]-[PROJECT].cloudfunctions.net/[FUNCTION_NAME]
+curl -X POST -d 'Hello @channel' https://[REGION]-[PROJECT].cloudfunctions.net/[FUNCTION_NAME]?channel=%23alerts&username=zabbix
 ```
+
+We use it for receiving Zabbix monitoring alerts, Mailgun / Sendgrid mail delivery failures and etc.
 
 ## Configuration
 
 Copy `config.default.json` to `config.json` and set SLACK_SECRET of your Slack bot
-
 
 ## Initialization
 
